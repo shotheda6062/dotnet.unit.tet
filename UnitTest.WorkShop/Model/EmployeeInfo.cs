@@ -10,6 +10,11 @@ namespace UnitTest.WorkShop.Model
         public string Address { get; set; }
 
         public string Mobile { get; set; }
+
+        public void ReturnsForAnyArgs<T>()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -9,7 +9,6 @@ namespace UnitTest.WorkShop.Repository.Implement
 
         private Dictionary<string, EmployeeInfo> _employeeMap = new();
 
-
         public EmployeeInfo? GetEmployeeInfo(string employeeID)
         {
             return _employeeMap.GetValueOrDefault(employeeID);

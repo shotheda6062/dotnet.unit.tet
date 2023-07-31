@@ -9,6 +9,10 @@ namespace UnitTest.WorkShop.Service.Implement
 
         private IEmployeeRepository _employeeRepository;
 
+        public EmployeeService()
+        {
+        }
+
         public EmployeeService(IEmployeeRepository employeeRepository)
         {
             _employeeRepository = employeeRepository;
@@ -17,7 +21,7 @@ namespace UnitTest.WorkShop.Service.Implement
         public void CreateEmployee(EmployeeInfo employeeInfo)
         {
             if (GetEmployee(employeeInfo.EmployeeID) is not null) {
-                throw new Exception();
+                throw new Exception("Employee is already exists");
             }
 
             _employeeRepository.InsertEmployeeInfo(employeeInfo);
@@ -26,7 +30,7 @@ namespace UnitTest.WorkShop.Service.Implement
 
         public EmployeeInfo GetEmployee(string idkey)
         {
-            return _employeeRepository.GetEmployeeInfo(idkey) ?? throw new NullReferenceException();
+            return _employeeRepository.GetEmployeeInfo(idkey) ?? throw new NullReferenceException("Not Found EmployyInfo");
         }
 
             
