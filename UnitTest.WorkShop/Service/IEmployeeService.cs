@@ -10,6 +10,8 @@ namespace UnitTest.WorkShop.Service
 
 		public void CreateEmployee(EmployeeInfo employeeInfo);
 
-	}
+		public double CalculateSalaryForEmployee(string employeeId);
+
+    }
 }
 
