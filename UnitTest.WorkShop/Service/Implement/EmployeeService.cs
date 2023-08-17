@@ -12,7 +12,7 @@ namespace UnitTest.WorkShop.Service.Implement
         private const double OvertimeMultiplier = 1.2;
 
         private IEmployeeRepository _employeeRepository;
-
+        private IEmployeeRepository stubEmployeeRepository;
         private readonly IWorkHoursRepository _workHoursRepository;
 
         public EmployeeService()
@@ -24,6 +24,11 @@ namespace UnitTest.WorkShop.Service.Implement
         {
             _employeeRepository = employeeRepository;
             _workHoursRepository = workHoursRepository;
+        }
+
+        public EmployeeService(IEmployeeRepository stubEmployeeRepository)
+        {
+            this.stubEmployeeRepository = stubEmployeeRepository;
         }
 
         public void CreateEmployee(EmployeeInfo employeeInfo)

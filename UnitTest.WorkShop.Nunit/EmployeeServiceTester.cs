@@ -1,6 +1,7 @@
 ﻿using NSubstitute.ReturnsExtensions;
 using UnitTest.WorkShop.Model;
 using UnitTest.WorkShop.Repository;
+using UnitTest.WorkShop.Repository.Implement;
 using UnitTest.WorkShop.Service;
 using UnitTest.WorkShop.Service.Implement;
 
@@ -13,12 +14,15 @@ public class EmployeeServiceTester
 
     private IEmployeeRepository _stubEmployeeRepository;
 
+    private IWorkHoursRepository _workHoursRepository;
+
     [SetUp]
     public void Setup()
     {
         //Mock Stub 造假一個在呼叫IEmployeeService時會掉用到的方法，進行隔離。
         _stubEmployeeRepository = Substitute.For<IEmployeeRepository>();
-        _target = new EmployeeService(_stubEmployeeRepository);
+        _workHoursRepository = Substitute.For<IWorkHoursRepository>();
+        _target = new EmployeeService(_stubEmployeeRepository, _workHoursRepository);
 
     }
 
